@@ -36,3 +36,4 @@ This project simulates the Sleeping Barber problem using Go. It models a barbers
 To run the barbershop simulation:
 ```sh
 go run ./...
+```
