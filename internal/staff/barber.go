@@ -1,8 +1,7 @@
 package staff
 
 import (
-	"github.com/google/uuid"
-	"go-sleeping-barber/internal/sleep"
+	"go-sleeping-barber/internal/customer"
 	logger "go-sleeping-barber/pkg/log"
 	"go.uber.org/zap"
 	"time"
@@ -15,8 +14,8 @@ type Barber struct {
 	CutDuration time.Duration
 }
 
-func (b *Barber) CutHair(customerID uuid.UUID) {
-	log.Info("Cutting hair for Customer", zap.String("customerID", customerID.String()))
-	sleep.RandomSleep(b.CutDuration)
-	log.Info("Haircut done for Customer", zap.String("customerID", customerID.String()))
+func (b *Barber) CutHair(customer customer.Customer) {
+	log.Info("Cutting hair for Customer", zap.String("customerID", customer.ID.String()))
+	time.Sleep(b.CutDuration)
+	log.Info("Haircut done for Customer", zap.String("customerID", customer.ID.String()))
 }
